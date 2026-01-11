@@ -466,17 +466,6 @@ GROUP BY table_name, action
 ORDER BY table_name, action;
 
 -- Cek 10 log terakhir
-SELECT '10 Log Terakhir' AS keterangan, '' AS info;
 SELECT * FROM activity_logs 
 ORDER BY created_at DESC 
 LIMIT 10;
-
--- =============================================
--- SELESAI
--- =============================================
--- File SQL ini sudah mencakup seluruh soal UAS:
--- 1. ✅ Design Database (CREATE TABLE customers, orders, activity_logs)
--- 2. ✅ Insert Data (50 customers, 2000 orders)
--- 3. ✅ Trigger untuk logging CRUD operations
--- 4. ✅ Test Query (5 query sesuai spesifikasi)
--- =============================================
