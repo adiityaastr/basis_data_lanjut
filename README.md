@@ -1,7 +1,7 @@
 # UAS Basis Data Lanjut - Sistem Online Food Delivery
 
 ## Deskripsi Proyek
-Proyek ini adalah implementasi sistem online food delivery sederhana menggunakan Laravel dengan database MySQL. Sistem ini terdiri dari 2 tabel utama: `customers` dan `orders`.
+Proyek ini adalah implementasi sistem online food delivery sederhana menggunakan Laravel dengan database MySQL. Sistem ini terdiri dari 3 tabel utama: `customers`, `orders`, dan `sessions`.
 
 ## Struktur Database
 
@@ -19,7 +19,7 @@ Proyek ini adalah implementasi sistem online food delivery sederhana menggunakan
 - `order_total` (DECIMAL 10,2)
 - `status` (VARCHAR 20) - pending, paid, canceled, delivered
 
-### Tabel: activity_logs
+### Tabel: activity_logs (Trigger Log)
 - `log_id` (INT, PK, AUTO_INCREMENT)
 - `table_name` (VARCHAR 50)
 - `action` (VARCHAR 20) - INSERT, UPDATE, DELETE
@@ -28,119 +28,115 @@ Proyek ini adalah implementasi sistem online food delivery sederhana menggunakan
 - `record_id` (VARCHAR 50, nullable)
 - `created_at` (TIMESTAMP)
 
+### Tabel: sessions (Laravel Session)
+- `id` (VARCHAR 255, PK)
+- `user_id` (BIGINT, nullable)
+- `ip_address` (VARCHAR 45)
+- `user_agent` (TEXT)
+- `payload` (LONGTEXT)
+- `last_activity` (INT)
+
 ## Instalasi
 
-1. Clone repository atau extract project
-2. Install dependencies:
-```bash
-composer install
-```
+### Prasyarat
+- PHP 8.2+
+- Composer
+- MySQL
 
-3. Copy file `.env.example` menjadi `.env`:
-```bash
-cp .env.example .env
-```
+### Langkah Instalasi
 
-4. Generate application key:
-```bash
-php artisan key:generate
-```
+1. **Clone repository**
+   ```bash
+   git clone [url-repo]
+   cd [nama-folder]
+   ```
 
-5. Konfigurasi database di file `.env`:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=food_ordering_db
-DB_USERNAME=root
-DB_PASSWORD=
-```
+2. **Install Dependencies**
+   ```bash
+   composer install
+   ```
 
-6. Buat database MySQL:
-```sql
-CREATE DATABASE food_ordering_db;
-```
+3. **Setup Environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-7. Jalankan migration:
-```bash
-php artisan migrate
-```
+4. **Konfigurasi Database (.env)**
+   Sesuaikan dengan kredensial database Anda:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=food_ordering_db
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-8. Jalankan trigger SQL (jika menggunakan MySQL):
-```bash
-mysql -u root -p food_ordering_db < database/triggers.sql
-```
+5. **Setup Database**
+   Terdapat dua cara untuk setup database. Pilih salah satu:
 
-9. Jalankan seeder untuk generate data:
-```bash
-php artisan db:seed
-```
+   **Opsi A: Full Import (Rekomendasi untuk Penilaian)**
+   Gunakan file SQL lengkap yang sudah berisi struktur, trigger, stored procedure, dan data dummy (50 customer, 2000 order).
+   
+   1. Buat database kosong `food_ordering_db`.
+   2. Import file `database/COMPLETE_UAS_SQL_SIMPLE.sql` ke database tersebut menggunakan HeidiSQL / phpMyAdmin / Terminal.
+   
+   **Opsi B: Laravel Migration & Seed (Development)**
+   ```bash
+   # Buat tabel
+   php artisan migrate
 
-10. Jalankan server:
-```bash
-php artisan serve
-```
+   # Jalankan trigger manual (jika diperlukan)
+   mysql -u root -p food_ordering_db < database/triggers.sql
+   
+   # Isi data dummy
+   php artisan db:seed
+   ```
+
+6. **Jalankan Server**
+   ```bash
+   php artisan serve
+   ```
+   Akses di: `http://localhost:8000`
 
 ## API Endpoints
 
-Lihat file `API_DOCUMENTATION.md` untuk dokumentasi lengkap API endpoints.
-
-### Base URL
-```
-http://localhost:8000/api
-```
-
-### Endpoints Customer
-- `GET /api/customers` - Get all customers
-- `GET /api/customers/{id}` - Get customer by ID
-- `POST /api/customers` - Create customer
+### 1. Customers
+- `GET /api/customers` - List semua customer
+- `GET /api/customers/{id}` - Detail customer
+- `POST /api/customers` - Buat customer baru
 - `PUT /api/customers/{id}` - Update customer
-- `DELETE /api/customers/{id}` - Delete customer
+- `DELETE /api/customers/{id}` - Hapus customer
 
-### Endpoints Order
-- `GET /api/orders` - Get all orders
-- `GET /api/orders/{id}` - Get order by ID
-- `POST /api/orders` - Create order
+### 2. Orders
+- `GET /api/orders` - List semua order
+- `GET /api/orders/{id}` - Detail order
+- `POST /api/orders` - Buat order baru
 - `PUT /api/orders/{id}` - Update order
-- `DELETE /api/orders/{id}` - Delete order
+- `DELETE /api/orders/{id}` - Hapus order
 
-## Testing
+### 3. Query Tests (Soal UAS)
+Endpoint khusus untuk menjalankan 5 query wajib soal UAS:
 
-### Testing API dengan Postman
-1. Import collection dari `API_DOCUMENTATION.md`
-2. Pastikan server Laravel berjalan
-3. Test setiap endpoint
-4. Screenshot hasil untuk dokumentasi
+- `GET /api/queries/1`
+  *Daftar pesanan lengkap (nama, telp, total, tanggal)*
+  
+- `GET /api/queries/2`
+  *Pelanggan yang belum pernah order*
+  
+- `GET /api/queries/3`
+  *Jumlah pesanan per hari (7 hari terakhir)*
+  
+- `GET /api/queries/4`
+  *Order terbesar untuk setiap pelanggan*
+  
+- `GET /api/queries/5`
+  *Rata-rata order harian vs hari ini*
 
-### Testing Query
-File `database/test_queries.sql` berisi 5 query test sesuai spesifikasi:
-1. Daftar pesanan lengkap dengan informasi pelanggan
-2. Pelanggan yang belum pernah membuat pesanan
-3. Jumlah pesanan per hari dalam 7 hari terakhir
-4. Order terbesar untuk setiap pelanggan
-5. Rata-rata total order harian dan perbandingan dengan hari ini
+- `GET /api/queries/all`
+  *Menjalankan semua query sekaligus*
 
-## File Penting
-
-- `database/migrations/` - File migration untuk struktur database
-- `database/seeders/` - Seeder untuk generate data (50 customers, 1000 orders)
-- `database/triggers.sql` - SQL script untuk trigger logging
-- `database/test_queries.sql` - SQL script untuk test query
-- `app/Http/Controllers/Api/` - API Controllers
-- `app/Models/` - Eloquent Models
-- `routes/api.php` - API Routes
-- `API_DOCUMENTATION.md` - Dokumentasi lengkap API
-
-## Struktur Laporan
-
-Format jawaban sesuai soal:
-1. Cover (nama, NIM, kelas)
-2. Design database
-3. Capture hasil testing postman (CRUD), Trigger, dan hasil query
-4. Source code Laravel API, database, paper jawaban
-
-## Catatan
-
-- Pastikan menggunakan MySQL untuk trigger (SQLite tidak mendukung trigger)
-- Trigger akan otomatis mencatat semua operasi CRUD ke tabel `activity_logs`
-- Seeder akan generate 50 customers dan 1000 orders secara otomatis
+## Verifikasi
+1. **Trigger Logging**: Cek tabel `activity_logs` setelah melakukan create/update/delete via API.
+2. **Data**: Pastikan tabel `customers` memiliki 50 data dan `orders` memiliki 2000 data (jika menggunakan Opsi A).
