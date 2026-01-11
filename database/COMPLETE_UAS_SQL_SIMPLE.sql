@@ -59,6 +59,20 @@ CREATE TABLE activity_logs (
 );
 
 -- =============================================
+-- TABEL: sessions (Laravel Session Driver)
+-- =============================================
+CREATE TABLE sessions (
+    id VARCHAR(255) PRIMARY KEY,
+    user_id BIGINT UNSIGNED NULL,
+    ip_address VARCHAR(45) NULL,
+    user_agent TEXT NULL,
+    payload LONGTEXT NOT NULL,
+    last_activity INT NOT NULL,
+    INDEX sessions_user_id_index (user_id),
+    INDEX sessions_last_activity_index (last_activity)
+);
+
+-- =============================================
 -- BAGIAN 2: INSERT DATA SAMPLE
 -- =============================================
 
