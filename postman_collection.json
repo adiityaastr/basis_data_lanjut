@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "uas-basis-data-api",
+		"name": "UAS Basis Data - Food Ordering API",
+		"description": "Collection API untuk sistem Online Food Delivery - UAS Basis Data Lanjut",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/customers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "Mengambil daftar semua customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/customers/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						},
+						"description": "Mengambil detail customer berdasarkan ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"phone\": \"081234567890\",\n    \"email\": \"john.doe@email.com\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/customers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "Membuat customer baru"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe Updated\",\n    \"phone\": \"081234567891\",\n    \"email\": \"john.doe.updated@email.com\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/customers/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						},
+						"description": "Update customer berdasarkan ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/customers/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						},
+						"description": "Menghapus customer berdasarkan ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint untuk mengelola data customers"
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						},
+						"description": "Mengambil daftar semua orders dengan informasi customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/orders/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						},
+						"description": "Mengambil detail order berdasarkan ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": 1,\n    \"order_date\": \"2024-01-15 10:00:00\",\n    \"order_total\": 50000.00,\n    \"status\": \"pending\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						},
+						"description": "Membuat order baru"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": 1,\n    \"order_date\": \"2024-01-15 10:00:00\",\n    \"order_total\": 75000.00,\n    \"status\": \"paid\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						},
+						"description": "Update order berdasarkan ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/orders/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						},
+						"description": "Menghapus order berdasarkan ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint untuk mengelola data orders"
+		},
+		{
+			"name": "Query Tests",
+			"item": [
+				{
+					"name": "Query 1 - Daftar Pesanan Lengkap",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/queries/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"1"
+							]
+						},
+						"description": "Menampilkan daftar pesanan lengkap dengan nama pelanggan, nomor telepon, total pesanan, dan tanggal pesanan. Urutkan dari yang terbaru."
+					},
+					"response": []
+				},
+				{
+					"name": "Query 2 - Pelanggan Tanpa Pesanan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/queries/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"2"
+							]
+						},
+						"description": "Menampilkan pelanggan yang belum pernah membuat pesanan sama sekali"
+					},
+					"response": []
+				},
+				{
+					"name": "Query 3 - Jumlah Pesanan 7 Hari Terakhir",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/queries/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"3"
+							]
+						},
+						"description": "Menampilkan jumlah pesanan per hari dalam 7 hari terakhir"
+					},
+					"response": []
+				},
+				{
+					"name": "Query 4 - Order Terbesar per Pelanggan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/queries/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"4"
+							]
+						},
+						"description": "Menampilkan order terbesar untuk setiap pelanggan"
+					},
+					"response": []
+				},
+				{
+					"name": "Query 5 - Rata-rata Order Harian",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/queries/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"5"
+							]
+						},
+						"description": "Menampilkan rata-rata total order harian dan membandingkannya dengan order hari ini"
+					},
+					"response": []
+				},
+				{
+					"name": "All Queries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/queries/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"queries",
+								"all"
+							]
+						},
+						"description": "Menampilkan semua query test sekaligus"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint untuk test query sesuai dengan spesifikasi UAS (5 query dari COMPLETE_UAS_SQL.sql)"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}

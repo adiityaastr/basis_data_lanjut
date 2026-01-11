@@ -1,0 +1,567 @@
+{
+	"_type": "export",
+	"__export_format": 4,
+	"__export_date": "2026-01-11T12:00:00.000Z",
+	"__export_source": "insomnia.desktop.app:v2023.5.8",
+	"resources": [
+		{
+			"_id": "req_customers_all",
+			"parentId": "fld_customers",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/customers",
+			"name": "Get All Customers",
+			"description": "Mengambil daftar semua customers",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_customers"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000000,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_customers_show",
+			"parentId": "fld_customers",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/customers/1",
+			"name": "Get Customer by ID",
+			"description": "Mengambil detail customer berdasarkan ID",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_customer_show"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000001,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_customers_create",
+			"parentId": "fld_customers",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/customers",
+			"name": "Create Customer",
+			"description": "Membuat customer baru",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n    \"name\": \"John Doe\",\n    \"phone\": \"081234567890\",\n    \"email\": \"john.doe@email.com\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_customer_create"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_content_customer_create"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000002,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_customers_update",
+			"parentId": "fld_customers",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/customers/1",
+			"name": "Update Customer",
+			"description": "Update customer berdasarkan ID",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n    \"name\": \"John Doe Updated\",\n    \"phone\": \"081234567891\",\n    \"email\": \"john.doe.updated@email.com\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_customer_update"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_content_customer_update"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000003,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_customers_delete",
+			"parentId": "fld_customers",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/customers/1",
+			"name": "Delete Customer",
+			"description": "Menghapus customer berdasarkan ID",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_customer_delete"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000004,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_orders_all",
+			"parentId": "fld_orders",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/orders",
+			"name": "Get All Orders",
+			"description": "Mengambil daftar semua orders dengan informasi customer",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_orders"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000005,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_orders_show",
+			"parentId": "fld_orders",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/orders/1",
+			"name": "Get Order by ID",
+			"description": "Mengambil detail order berdasarkan ID",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_order_show"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000006,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_orders_create",
+			"parentId": "fld_orders",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/orders",
+			"name": "Create Order",
+			"description": "Membuat order baru",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n    \"customer_id\": 1,\n    \"order_date\": \"2024-01-15 10:00:00\",\n    \"order_total\": 50000.00,\n    \"status\": \"pending\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_order_create"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_content_order_create"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000007,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_orders_update",
+			"parentId": "fld_orders",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/orders/1",
+			"name": "Update Order",
+			"description": "Update order berdasarkan ID",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n    \"customer_id\": 1,\n    \"order_date\": \"2024-01-15 10:00:00\",\n    \"order_total\": 75000.00,\n    \"status\": \"paid\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_order_update"
+				},
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_content_order_update"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000008,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_orders_delete",
+			"parentId": "fld_orders",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/orders/1",
+			"name": "Delete Order",
+			"description": "Menghapus order berdasarkan ID",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_order_delete"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000009,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_query_1",
+			"parentId": "fld_queries",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/queries/1",
+			"name": "Query 1 - Daftar Pesanan Lengkap",
+			"description": "Menampilkan daftar pesanan lengkap dengan nama pelanggan, nomor telepon, total pesanan, dan tanggal pesanan. Urutkan dari yang terbaru.",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_query1"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000010,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_query_2",
+			"parentId": "fld_queries",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/queries/2",
+			"name": "Query 2 - Pelanggan Tanpa Pesanan",
+			"description": "Menampilkan pelanggan yang belum pernah membuat pesanan sama sekali",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_query2"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000011,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_query_3",
+			"parentId": "fld_queries",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/queries/3",
+			"name": "Query 3 - Jumlah Pesanan 7 Hari Terakhir",
+			"description": "Menampilkan jumlah pesanan per hari dalam 7 hari terakhir",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_query3"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000012,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_query_4",
+			"parentId": "fld_queries",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/queries/4",
+			"name": "Query 4 - Order Terbesar per Pelanggan",
+			"description": "Menampilkan order terbesar untuk setiap pelanggan",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_query4"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000013,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_query_5",
+			"parentId": "fld_queries",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/queries/5",
+			"name": "Query 5 - Rata-rata Order Harian",
+			"description": "Menampilkan rata-rata total order harian dan membandingkannya dengan order hari ini",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_query5"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000014,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_query_all",
+			"parentId": "fld_queries",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"url": "{{ _.base_url }}/api/queries/all",
+			"name": "All Queries",
+			"description": "Menampilkan semua query test sekaligus",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json",
+					"id": "pair_accept_query_all"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1704960000015,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_customers",
+			"parentId": "wrk_main",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"name": "Customers",
+			"description": "Endpoint untuk mengelola data customers",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": 1000000000000,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_orders",
+			"parentId": "wrk_main",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"name": "Orders",
+			"description": "Endpoint untuk mengelola data orders",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": 2000000000000,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_queries",
+			"parentId": "wrk_main",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"name": "Query Tests",
+			"description": "Endpoint untuk test query sesuai dengan spesifikasi UAS (5 query dari COMPLETE_UAS_SQL.sql)",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": 3000000000000,
+			"_type": "request_group"
+		},
+		{
+			"_id": "wrk_main",
+			"parentId": null,
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"name": "UAS Basis Data - Food Ordering API",
+			"description": "Collection API untuk sistem Online Food Delivery - UAS Basis Data Lanjut",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_base",
+			"parentId": "wrk_main",
+			"modified": 1704960000000,
+			"created": 1704960000000,
+			"name": "Base Environment",
+			"data": {
+				"base_url": "http://127.0.0.1:8000"
+			},
+			"dataPropertyOrder": {
+				"base_url": ""
+			},
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1704960000000,
+			"_type": "environment"
+		}
+	]
+}
